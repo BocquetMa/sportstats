@@ -1951,6 +1951,35 @@
         .gap-2 { gap: 1rem; }
         .gap-3 { gap: 1.5rem; }
 
+        /* ============================================
+            SCROLLABLE CONTENT
+            ============================================ */
+        .scrollable-content {
+            overflow-y: auto;
+            max-height: 55vh;
+            padding-right: 8px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) rgba(255, 255, 255, 0.08);
+        }
+
+        .scrollable-content::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .scrollable-content::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+        }
+
+        .scrollable-content::-webkit-scrollbar-thumb {
+            background: var(--gradient-primary);
+            border-radius: 10px;
+        }
+
+        .scrollable-content::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-light);
+        }
+
     </style>
 </head>
 <body>
@@ -2647,7 +2676,7 @@ P.S. : Je t'aime très fort Naïs, le plus sincère possible. 💕`,
         }
 
         function renderTimelineSlide(slide) {
-            let html = '<div class="timeline-container"><div class="timeline-line"></div>';
+            let html = '<div class="timeline-container scrollable-content"><div class="timeline-line"></div>';
             
             slide.events.forEach((event, i) => {
                 html += `
@@ -2694,7 +2723,7 @@ P.S. : Je t'aime très fort Naïs, le plus sincère possible. 💕`,
 
         function renderFinalSlide(slide) {
             return `
-                <div class="final-message">
+                <div class="final-message scrollable-content">
                     <p class="final-message-text">
                         ${slide.finalText.replace(/\n\n/g, '<br><br>')}
                     </p>
